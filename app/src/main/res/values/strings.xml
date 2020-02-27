@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Asia Trans</string>
+    <string name="domisili_hint">cari domisili disini...</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!--    LOGIN PAGE-->
+    <string name="txtNomor">Nomor Handphone</string>
+    <string name="txtPassword">Password</string>
+    <string name="btnLogin">Masuk</string>
+    <string name="btnRegister">Daftar</string>
+
+    <!--    REGISTRATION PAGE-->
+    <string name="txtOwner">Masukan Nama Anda</string>
+    <string name="txtEmail">Masukan Email Anda</string>
+    <string name="txtRegistNomor">Masukan Nomor Ponsel Anda</string>
+    <string name="txtRegistPassword">Masukan Password Anda</string>
+    <string name="txtConfirmPassword">Masukan Konfirmasi Password</string>
+    <string name="btnRegistRegister">Daftar</string>
+    <string name="txtDomicile">Pilih Domisili Anda</string>
+
+    <!--    MENU NAVIGATION-->
+    <string name="icHome">Home</string>
+    <string name="icFavorite">Favorit</string>
+    <string name="icCart">Keranjang</string>
+    <string name="icAccount">Akun</string>
+
+    <!--    HOME FRAGMENT-->
+    <string name="txtSaldo">Jumlah Saldo</string>
+    <string name="txtCar">Mobil</string>
+    <string name="txtFashion">Pakaian</string>
+    <string name="txtAccessories">Aksesoris</string>
+    <string name="txtBeauty">Kosmetik</string>
+    <string name="txtGame">Permainan</string>
+    <string name="txtElectronic">Elektronik</string>
+    <string name="txtComputer">Komputer</string>
+    <string name="txtSport">Olahraga</string>
+    <string name="txtHandphone">Gadget</string>
+    <string name="txtBike">Motor</string>
+    <string name="txtRekomendasi">Rekomendasi</string>
+
+</resources>

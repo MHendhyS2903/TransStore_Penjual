@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryTrans">#80008577</color>
+    <color name="colorPrimaryDark">#3CB64B</color>
+    <color name="colorAccent">#38ef7d</color>
+
+    <color name="recycle_background">#80E2E2E2</color>
+    <color name="transparant">#00000000</color>
+    <color name="gray">#cfcfcf</color>
+    <color name="gray_login">#fafafa</color>
+    <color name="gray_light">#f0f0f0</color>
+    <color name="gray_dark">#828282</color>
+    <color name="blue">#2a1a5e</color>
+    <color name="yellow">#FFE000</color>
+
+    <!--TEXT COLOR-->
+    <color name="text_black">#212121</color>
+    <color name="text_white">#ffffff</color>
+
+    <!--BUTTON GRADIENT-->
+    <!--hijau-->
+    <color name="mojitoTop">#1D976C</color>
+    <color name="mojitoBottom">#93F9B9</color>
+    <color name="mojitoDarkTop">#17825c</color>
+    <color name="mojitoDarkBottom">#6ed494</color>
+    <!--merah-->
+    <color name="sinCityRedTop">#ED213A</color>
+    <color name="sinCityRedDarkTop">#c9142a</color>
+    <color name="sinCityRedBottom">#93291E</color>
+    <color name="sinCityRedDarkBottom">#66160d</color>
+
+</resources>

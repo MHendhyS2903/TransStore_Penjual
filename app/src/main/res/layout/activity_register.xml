@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.register.RegisterActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+        <variable
+            name="vmRegister"
+            type="id.asiatek.asiatrans.viewmodel.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallpaper_regist">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="345dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/acme"
+        android:text="Let's Start With \nRegistration"
+        android:textColor="#F3F0F0"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.934"
+        tools:layout_editor_absoluteX="16dp">
+
+        <LinearLayout
+            android:id="@+id/lytLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtOwner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_input"
+                android:drawableLeft="@drawable/ic_user_24dp"
+                android:drawablePadding="15dp"
+                android:inputType=""
+                android:hint="@string/txtOwner"
+                android:padding="5dp"
+                android:textAlignment="textStart"></EditText>
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_input"
+                android:drawableLeft="@drawable/ic_paper_plane_24dp"
+                android:drawablePadding="15dp"
+                android:hint="@string/txtEmail"
+                android:inputType="textEmailAddress"
+                android:padding="5dp"
+                android:textAlignment="textStart"></EditText>
+
+            <EditText
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_input"
+                android:drawableLeft="@drawable/ic_smartphone_24dp"
+                android:drawablePadding="15dp"
+                android:hint="@string/txtRegistNomor"
+                android:inputType="phone"
+                android:padding="5dp"
+                android:textAlignment="textStart"></EditText>
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_input"
+                android:drawableLeft="@drawable/ic_locked_24dp"
+                android:drawablePadding="15dp"
+                android:hint="@string/txtRegistPassword"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textAlignment="textStart"></EditText>
+
+            <EditText
+                android:id="@+id/txtConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_input"
+                android:drawableLeft="@drawable/ic_locked_24dp"
+                android:drawablePadding="15dp"
+                android:hint="@string/txtConfirmPassword"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textAlignment="textStart"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/txtDomicile"></TextView>
+
+            <Spinner
+                android:id="@+id/txtDomicile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_spinner"
+                android:hint="@string/txtDomicile"
+                android:padding="10dp"
+                android:textAlignment="textStart"></Spinner>
+
+            <Button
+                android:id="@+id/btnRegist"
+                android:layout_width="312dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_green_trans_solid"
+                android:text="@string/btnRegistRegister"
+                android:textColor="@color/white"></Button>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

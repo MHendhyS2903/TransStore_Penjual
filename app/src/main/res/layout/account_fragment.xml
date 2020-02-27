@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.menu.ui.account.AccountFragment"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+        <variable
+            name="vmAccount"
+            type="id.asiatek.asiatrans.viewmodel.AccountFragmentViewModel" />
+    </data>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallpaper_account_2">
+        <LinearLayout
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/custom_border_profile"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <id.asiatek.asiatrans.widget.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:src="@drawable/cigul"></id.asiatek.asiatrans.widget.CircleImageView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:adapter="@{vmAccount.items}"
+                    app:layout_constraintBottom_toTopOf="@+id/profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1.40"
+                    android:background="@drawable/custom_border"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_transaction"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transaction"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/menu"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:textAlignment="center"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Pengaturan Akun"
+                android:textAlignment="textStart"
+                android:drawableLeft="@drawable/ic_settings"
+                android:paddingLeft="20dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:background="@drawable/button_menu_account"></Button>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Call Center"
+                android:textAlignment="textStart"
+                android:drawableLeft="@drawable/ic_headset"
+                android:paddingLeft="20dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:background="@drawable/button_menu_account"></Button>
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Keluar"
+                android:textAlignment="textStart"
+                android:drawableLeft="@drawable/ic_logout"
+                android:paddingLeft="20dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:background="@drawable/button_menu_account"></Button>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+</layout>

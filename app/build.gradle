@@ -1,0 +1,201 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+    defaultConfig {
+        applicationId "id.asiatek.asiatrans"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "2.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    realm {
+        syncEnabled = true
+    }
+    dataBinding {
+        enabled = true
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
+    dexOptions {
+        preDexLibraries = false
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+kotlin {
+    experimental {
+//        coroutines "enable"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.core:core:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.aurelhubert:ahbottomnavigation:2.0.5'
+    implementation 'com.airbnb.android:lottie:2.5.0-rc1'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.github.mreram:showcaseview:1.1'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'io.supercharge:shimmerlayout:2.1.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
+
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+    implementation 'androidx.navigation:navigation-ui:2.1.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+    // common
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:annotations:4.5.0'
+    kapt 'com.github.bumptech.glide:compiler:4.5.0'
+    implementation('com.github.bumptech.glide:okhttp3-integration:1.4.0') {
+        exclude group: 'glide-parent'
+    }
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+    implementation 'com.balysv:material-ripple:1.0.2'
+
+    // ripple effect
+
+    //Dagger 2
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // kotlin
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+
+    // kotlin
+    //annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version" // for java
+    //annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+
+    // for java
+
+    //NETWORK
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+    //RxJava 2
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.realm:android-adapters:2.1.0'
+
+    // viewmodel and livedata
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    kapt 'androidx.lifecycle:lifecycle-compiler:2.0.0' // kotlin
+    //annotationProcessor "android.arch.lifecycle:compiler:$rootProject.lifecycle"
+
+    // for java
+    // font
+    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    // dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // UI Testing
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    //jakson
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.5'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
+
+    // circle image view
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //anko
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.anko:anko-design:$anko_version"
+    implementation 'com.elmargomez.typer:typerlib:1.0.0'
+    implementation 'com.github.HITGIF:TextFieldBoxes:1.4.4'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    // fast android networking
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+    //------------------------google----------------------------------------//
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
+
+    //authentication
+    implementation 'com.google.firebase:firebase-auth:16.0.3'
+    implementation 'com.google.android.gms:play-services-auth:16.0.0'
+
+    //-------------------------firebase-------------------------------------//
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.3.2'
+    implementation 'com.firebase:firebase-jobdispatcher:0.5.2'
+
+    //-------------------------splash screen-------------------------------------//
+    implementation 'com.wang.avi:library:2.1.3'
+}
+
+configurations.all {
+    resolutionStrategy.force "com.android.support:support-annotations:$supportLibraryVersion"
+    resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+}
+
+configurations {
+    cleanedAnnotations
+    compile.exclude group: 'org.jetbrains', module: 'annotations'
+}

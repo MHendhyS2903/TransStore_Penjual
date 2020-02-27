@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vmItemCart"
+            type="id.asiatek.asiatrans.viewmodel.CartItemViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_stmp"-->
+        <!--            android:layout_width="@dimen/_150sdp"-->
+        <!--            android:layout_height="@dimen/_150sdp"-->
+        <!--            android:layout_gravity="right|center"-->
+        <!--            android:src="@mipmap/stmp_proses"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:weightSum="3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatCheckBox>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/toko"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_margin="5dp">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="5dp"
+                            app:srcCompat="@drawable/ic_store"></ImageView>
+                        <TextView
+                            android:id="@+id/txtToko"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="italic"
+                            android:text="Toko Serba Ada"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:srcCompat="@drawable/cigul"></ImageView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{vmItemCart.orderid}"
+                                android:textSize="20dp"></TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{vmItemCart.destination}"
+                                android:textColor="@color/A400red"
+                                android:textSize="15dp"
+                                android:textStyle="bold"></TextView>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/custom_border_cart_value"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/btnMinus"
+                                    android:layout_width="35dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="1dp"
+                                    android:background="@drawable/button_silver"
+                                    android:text="-"></Button>
+
+                                <TextView
+                                    android:id="@+id/txtQty"
+                                    android:layout_width="70dp"
+                                    android:layout_height="33dp"
+                                    android:background="@drawable/custom_border_cart_value"
+                                    android:text="@{vmItemCart.qty}"
+                                    android:textAlignment="center"
+                                    android:textSize="@dimen/_9sdp"></TextView>
+
+                                <Button
+                                    android:id="@+id/btnPlus"
+                                    android:layout_width="35dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:background="@drawable/button_silver"
+                                    android:text="+"></Button>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+
+<!--<LinearLayout-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:orientation="vertical">-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="horizontal">-->
+<!--    <ImageView-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        app:srcCompat="@drawable/ic_store"></ImageView>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textStyle="italic"-->
+<!--        android:text="Toko Serba Ada"></TextView>-->
+<!--    <ImageView-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        app:srcCompat="@drawable/ic_logo_at_mini"-->
+<!--        android:background="@drawable/custom_border_menu"></ImageView>-->
+<!--</LinearLayout>-->
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="250dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:gravity="left"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_marginLeft="10dp">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:text="Mesin Cuci Samsung"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textSize="@dimen/_15sdp"></TextView>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginTop="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:text="Rp. 4.000.000"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textColor="#3CB64B"></TextView>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="horizontal">&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+<!--</LinearLayout>-->

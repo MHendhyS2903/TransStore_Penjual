@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.asiatrans.transfood.widget.QuicksandTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textSize="@dimen/_12sdp"
+    android:textColor="@color/text_black"
+    android:gravity="center|left">
+
+</com.asiatrans.transfood.widget.QuicksandTextView>
