@@ -111,6 +111,20 @@
                 android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp"/>
             <Button
+                android:id="@+id/btnEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Edit Profile"
+                android:textAlignment="textStart"
+                android:drawableLeft="@drawable/ic_user_24dp"
+                android:paddingLeft="20dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:background="@drawable/button_menu_account"></Button>
+
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -122,6 +136,7 @@
                 android:paddingLeft="20dp"
                 android:drawablePadding="@dimen/_10sdp"
                 android:background="@drawable/button_menu_account"></Button>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

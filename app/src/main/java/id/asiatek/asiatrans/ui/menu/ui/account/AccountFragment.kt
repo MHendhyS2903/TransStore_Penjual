@@ -86,11 +86,11 @@ class AccountFragment : BaseFragment<AccountFragmentBinding, AccountFragmentView
 
     private fun params(){
         var sharedPreference: SharedPreference = SharedPreference(baseActivity)
-        var hp = sharedPreference.getValueString("account")
+        var cellular = sharedPreference.getValueString("account")
         viewModel.getAccount(AccountRequest(
-                "asjkldjlkajskldui212khkjdasd",
+                "dGVzdDEyMzYyODU5MjE3MDIwMjZtLmhlbmRoeS5zQGdtYWlsLmNvbTQyOTE=",
                 "{\"limit\":20,\"page\":1,\"field\":\"id\",\"direction\":\"asc\"}",
-                "[{\"field\":\"hp1\",\"op\":\"eq\",\"value\":\""+hp+"\"}]"
+                "[{\"field\":\"cellular\",\"op\":\"eq\",\"value\":\""+cellular+"\"}]"
             )
         )
     }

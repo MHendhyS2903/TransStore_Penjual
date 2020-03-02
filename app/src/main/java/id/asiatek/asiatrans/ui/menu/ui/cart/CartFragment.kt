@@ -37,15 +37,16 @@ import javax.inject.Inject
 class CartFragment : BaseFragment<CartFragmentBinding, CartFragmentViewModel>(), CartAdapter.OnItemClickListener, MenuNavigator {
 
     override fun onItemClickItem(view: View?, obj: DataCartOrder?) {
-        when(view!!.id) {
-            R.id.btnPlus -> {
-                Toasty.success(context!!, "plus", Toast.LENGTH_LONG).show()
-                Log.d(TAG, "test")
-            }
-            R.id.btnMinus -> Toasty.success(context!!, "minus", Toast.LENGTH_LONG).show()
-            else
-               -> Toasty.success(context!!, "else", Toast.LENGTH_LONG).show()
-        }
+//        when(view!!.id) {
+//            R.id.btnPlus -> {
+//                Toasty.success(context!!, "plus", Toast.LENGTH_LONG).show()
+//                Log.d(TAG, "test")
+//            }
+//            R.id.btnMinus -> Toasty.success(context!!, "minus", Toast.LENGTH_LONG).show()
+//            else
+//               -> Toasty.success(context!!, "else", Toast.LENGTH_LONG).show()
+//        }
+        Toasty.success(context!!, "else", Toast.LENGTH_LONG).show()
     }
 
     override fun onSuccessAccount(msg: MsgAccount) {

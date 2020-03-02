@@ -27,8 +27,10 @@ class AccountItemViewModel(msg: DataAccountValue) {
 
     val msg = msg
 
-    val owner = msg.owner
+    val fullname = msg.fullname
     val email = msg.email
+    val lat = ClassUtils.convertRupiah(msg.lat)
+    val lng = ClassUtils.convertRupiah(msg.lng)
 
     init {
 
