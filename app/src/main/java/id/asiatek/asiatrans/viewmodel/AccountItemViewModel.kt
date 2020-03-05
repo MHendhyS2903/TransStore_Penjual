@@ -27,10 +27,8 @@ class AccountItemViewModel(msg: DataAccountValue) {
 
     val msg = msg
 
-    val fullname = msg.fullname
-    val email = msg.email
-    val lat = ClassUtils.convertRupiah(msg.lat)
-    val lng = ClassUtils.convertRupiah(msg.lng)
+    val fullname = msg.fullname.toString()
+    val email = msg.email.toString()
 
     init {
 

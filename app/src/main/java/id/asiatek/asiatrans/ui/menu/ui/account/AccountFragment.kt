@@ -1,5 +1,6 @@
 package id.asiatek.asiatrans.ui.menu.ui.account
 
+import android.accounts.Account
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +10,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bpdsulteng.androidtvsliderimage.data.realm.AccountObject
+import com.bpdsulteng.jbk.realm.dao.AccountDao
 
 import id.asiatek.asiatrans.R
 import id.asiatek.asiatrans.BR
@@ -23,11 +26,16 @@ import id.asiatek.asiatrans.ui.SharedPreference
 import id.asiatek.asiatrans.ui.login.LoginActivity
 import id.asiatek.asiatrans.ui.base.BaseFragment
 import id.asiatek.asiatrans.viewmodel.AccountFragmentViewModel
+//import kotlinx.android.synthetic.main.account_detail_fragment.*
 import kotlinx.android.synthetic.main.account_fragment.*
 import javax.inject.Inject
 
 class AccountFragment : BaseFragment<AccountFragmentBinding, AccountFragmentViewModel>(), MenuNavigator {
+    var account = AccountDao()
+    lateinit var loginInfo: AccountObject
+
     override fun onSuccessAccount(msg: MsgAccount) {
+
         try{
             if(msg.status == true){
                 if(viewModel.getItems().isEmpty()){
@@ -81,8 +89,19 @@ class AccountFragment : BaseFragment<AccountFragmentBinding, AccountFragmentView
         if (arguments != null) {}
         viewModel.navigator = this
 
+        init()
+//        params()
+    }
+
+    private fun init() {
+        loginInfo = account.getLogin()!!
+        et_test.setText(loginInfo.email)
         params()
     }
+//
+//    private fun save() {
+//        loginInfo.token
+//    }
 
     private fun params(){
         var sharedPreference: SharedPreference = SharedPreference(baseActivity)
@@ -108,7 +127,7 @@ class AccountFragment : BaseFragment<AccountFragmentBinding, AccountFragmentView
         var sharedPreference: SharedPreference = SharedPreference(baseActivity)
 
         btnLogout.setOnClickListener {
-            sharedPreference.removeValue("account")
+            sharedPreference.removeValue( "account")
             Toast.makeText(baseActivity,"Logout", Toast.LENGTH_SHORT ).show()
             val intent = Intent(activity, LoginActivity::class.java)
             activity?.startActivity(intent)

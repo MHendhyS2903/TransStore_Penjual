@@ -11,9 +11,9 @@ import javax.annotation.Generated
 data class MsgGmail(
 
 		@field:JsonProperty("Status")
-		val Status: Boolean? = null
+		val Status: Boolean? = null,
 
-//        @field:JsonProperty("Value")
-//        val Value: AccountObject? = null
+        @field:JsonProperty("Value")
+        val Value: AccountObject? = null
 
 )

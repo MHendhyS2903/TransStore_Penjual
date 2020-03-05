@@ -50,7 +50,6 @@ class AccountFragmentViewModel : BaseObservableViewModel<MenuNavigator>() {
                     Log.d(LoginActivity.TAG, "RESPONSE : $response")
                     var msg = CommonUtils.mto(response, MsgAccount::class.java)
                     if(msg.status == true) {
-                        setItems(msg.value as MutableList<DataAccountValue>)
                         navigator.onSuccessAccount(msg)
                     }
                 }
