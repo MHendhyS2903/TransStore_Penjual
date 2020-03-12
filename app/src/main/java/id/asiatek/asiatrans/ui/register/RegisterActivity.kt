@@ -51,21 +51,21 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
     private fun regist(){
         var sdk = android.os.Build.VERSION.SDK_INT;
         var txtDomicile = 70
-            if(txtPassword.text.toString() == txtConfirmPassword.text.toString()){
-                viewModel.registerData(RegisterRequest(txtEmail.text.toString(), txtOwner.text.toString(), txtPhone.text.toString(), txtDomicile  ,txtPassword.text.toString()))
-            }else{
-                YoYo.with(Techniques.Tada)
-                    .duration(300)
-                    .repeat(1)
-                    .playOn(findViewById(R.id.txtConfirmPassword))
-                if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                    txtConfirmPassword.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error) );
-                } else {
-                    txtConfirmPassword.setBackground(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error));
-                }
-
-                Toast.makeText(this,"Your Confirm Password is Not Match", Toast.LENGTH_SHORT ).show()
-            }
+//            if(txtPassword.text.toString() == txtConfirmPassword.text.toString()){
+//                viewModel.registerData(RegisterRequest(txtEmail.text.toString(), txtOwner.text.toString(), txtPhone.text.toString(), txtDomicile  ,txtPassword.text.toString()))
+//            }else{
+//                YoYo.with(Techniques.Tada)
+//                    .duration(300)
+//                    .repeat(1)
+//                    .playOn(findViewById(R.id.txtConfirmPassword))
+//                if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+//                    txtConfirmPassword.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error) );
+//                } else {
+//                    txtConfirmPassword.setBackground(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error));
+//                }
+//
+//                Toast.makeText(this,"Your Confirm Password is Not Match", Toast.LENGTH_SHORT ).show()
+//            }
     }
 
     override fun onFocusChange(p0: View?, p1: Boolean) {

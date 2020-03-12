@@ -21,8 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.menu.ui.account.AccountDetailActivity"
+        <activity android:name=".ui.add_item.AddItemActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,19 +29,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.detail.ItemDetailActivity" />
         <activity
-            android:name=".ui.menu.ui.detail.ItemDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".ui.tab_menu.MainTabActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.menu.ui.account.AccountDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ui.detail.ItemDetailActivity" />
         <activity
             android:name=".ui.menu.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.register.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -51,13 +53,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

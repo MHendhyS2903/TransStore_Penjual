@@ -24,7 +24,6 @@ import id.asiatek.asiatrans.model.register.MsgRegister
 import id.asiatek.asiatrans.navigator.LoginNavigator
 import id.asiatek.asiatrans.ui.SharedPreference
 import id.asiatek.asiatrans.ui.base.BaseActivity
-import id.asiatek.asiatrans.ui.menu.MenuActivity
 import id.asiatek.asiatrans.ui.register.RegisterActivity
 import id.asiatek.asiatrans.viewmodel.LoginViewModel
 import id.asiatek.asiatrans.widget.SpinnerDialog
@@ -72,17 +71,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var sharedPreference: SharedPreference =SharedPreference(this)
         binding = viewDataBinding
         viewModel.navigator = this
-
-        if(sharedPreference.getValueString("account") == null){
-            btnLogin.setOnClickListener {
-                viewModel.login(LoginRequest(txtPhone.text.toString(), txtPassword.text.toString()))
-            }
-        }else{
-            startActivity(Intent(this, MenuActivity::class.java))
-        }
     }
 
 //    override fun onRegist() {
@@ -90,31 +80,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
 //    }
 
     override fun onSuccessLogin(msg: MsgGmail) {
-            var sdk = android.os.Build.VERSION.SDK_INT;
 
-        if(msg.Status === true)
-        {
-            accountDao.deleteLogin()
-            msg.Value?.let { accountDao.addLogin(it) }
-            SharedPref.setToken(accountDao.getLoginToken())
-
-            Toast.makeText(this,"Login Success", Toast.LENGTH_SHORT ).show()
-//            val pref = SharedPreference(this)
-//            pref.save("account",txtPhone.text.toString())
-            startActivity(Intent(this, MenuActivity::class.java))
-        }else{
-            YoYo.with(Techniques.Tada)
-                .duration(300)
-                .repeat(1)
-                .playOn(findViewById(R.id.txtPassword))
-            if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                txtPassword.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error) );
-            } else {
-                txtPassword.setBackground(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error));
-            }
-
-            Toast.makeText(this,"Invalid Username or Password", Toast.LENGTH_SHORT ).show()
-        }
     }
 
     override fun onSuccessRegister(msg: MsgRegister) {

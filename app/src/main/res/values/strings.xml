@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Asia Trans</string>
+    <string name="app_name">Trans Store Penjual</string>
     <string name="domisili_hint">cari domisili disini...</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="title_home">Home</string>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            name="vmItemHome"-->
+<!--            type="id.asiatek.asiatrans.viewmodel.FavoriteItemViewModel" />-->
+
+<!--    </data>-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:weightSum="3">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/kipas2"></ImageView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_NamaBarang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Barang"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Stock : "></TextView>
+                    <TextView
+                        android:id="@+id/tv_StockBarang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"></TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_HargaBarang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 1.000.000"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
