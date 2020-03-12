@@ -7,6 +7,10 @@ import android.os.Handler
 import id.asiatek.asiatrans.R
 import id.asiatek.asiatrans.ui.login.LoginActivity
 import com.wang.avi.AVLoadingIndicatorView
+import id.asiatek.asiatrans.data.prefs.SharedPref
+import id.asiatek.asiatrans.ui.register.RegisterActivity
+import id.asiatek.asiatrans.ui.tab_menu.MainTabActivity
+import org.jetbrains.anko.startActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -21,8 +25,13 @@ class SplashActivity : AppCompatActivity() {
         avi.show()
 
         Handler().postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            if(SharedPref.getToken().isNotEmpty()) {
+                finish()
+                startActivity<MainTabActivity>()
+            } else {
+                finish()
+                startActivity<RegisterActivity>()
+            }
         }, SPLASH_TIME_OUT)
     }
 }

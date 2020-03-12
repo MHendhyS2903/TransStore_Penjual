@@ -11,6 +11,7 @@ import com.bpdsulteng.jbk.realm.dao.AccountDao
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import es.dmoral.toasty.Toasty
 import id.asiatek.asiatrans.BR
 import id.asiatek.asiatrans.R
 import id.asiatek.asiatrans.data.prefs.SharedPref
@@ -25,9 +26,11 @@ import id.asiatek.asiatrans.navigator.LoginNavigator
 import id.asiatek.asiatrans.ui.SharedPreference
 import id.asiatek.asiatrans.ui.base.BaseActivity
 import id.asiatek.asiatrans.ui.register.RegisterActivity
+import id.asiatek.asiatrans.ui.tab_menu.MainTabActivity
 import id.asiatek.asiatrans.viewmodel.LoginViewModel
 import id.asiatek.asiatrans.widget.SpinnerDialog
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.startActivity
 import smartdevelop.ir.eram.showcaseviewlib.GuideView
 import java.util.*
 import javax.inject.Inject
@@ -73,14 +76,32 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
         super.onCreate(savedInstanceState)
         binding = viewDataBinding
         viewModel.navigator = this
+
+        btnLogin.setOnClickListener {
+            funcLogin()
+        }
     }
 
-//    override fun onRegist() {
-//        startActivity(Intent(this, RegisterActivity::class.java))
-//    }
+    private fun funcLogin() {
+        if(txtPhone != null || txtPassword != null){
+            var request = LoginRequest()
+            request.cellular = txtPhone.text.trim().toString()
+            request.password = txtPassword.text.trim().toString()
+            viewModel.login(request)
+        }else{
+            Toasty.error(baseContext, "Masukan Nomor Handphone dan Password", Toast.LENGTH_SHORT, true).show()
+        }
+    }
 
     override fun onSuccessLogin(msg: MsgGmail) {
-
+        if(msg.Status == true){
+            msg.Value?.let { accountDao.addLogin(it) }
+            SharedPref.setToken(accountDao.getLoginToken())
+            finish()
+            startActivity<MainTabActivity>()
+        }else{
+            Toasty.error(baseContext, "Nomor Handphone atau Password Salah", Toast.LENGTH_SHORT, true).show()
+        }
     }
 
     override fun onSuccessRegister(msg: MsgRegister) {

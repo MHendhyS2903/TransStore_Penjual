@@ -8,7 +8,7 @@
     <data>
 
         <variable
-            name="vmlogin"
+            name="vmLogin"
             type="id.asiatek.asiatrans.viewmodel.LoginViewModel" />
     </data>
 

@@ -63,40 +63,4 @@ class RegisterViewModel : BaseObservableViewModel<LoginNavigator>() {
                 }
             })
     }
-
-    fun getArea() {
-        navigator.showLoading()
-        Rx2AndroidNetworking.get(GetArea)
-            .build()
-            .setAnalyticsListener { timeTakenInMillis, bytesSent, bytesReceived, isFromCache ->
-                Log.d(LoginActivity.TAG, " timeTakenInMillis : $timeTakenInMillis")
-                Log.d(LoginActivity.TAG, " bytesSent : $bytesSent")
-                Log.d(LoginActivity.TAG, " bytesReceived : $bytesReceived")
-                Log.d(LoginActivity.TAG, " isFromCache : $isFromCache")
-            }
-            .stringSingle
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : SingleObserver<String> {
-                override fun onSuccess(response: String) {
-                    navigator.hideLoading()
-                    Log.d(LoginActivity.TAG, "onResponse isMainThread : ${Looper.myLooper() == Looper.getMainLooper()}")
-                    Log.d(LoginActivity.TAG, "RESPONSE : $response")
-                    var msg = mto(response, MsgArea::class.java)
-                    navigator.onSuccessArea(msg)
-                }
-
-                override fun onSubscribe(d: Disposable) {
-
-                }
-
-                override fun onError(e: Throwable) {
-                    navigator.hideLoading()
-                    navigator.onErrorLogin()
-                    CommonUtils.getErrorBody(e)?.let { navigator.showMsg(it) }
-                    CommonUtils.logError(LoginActivity.TAG, e)
-                }
-            })
-    }
-
 }

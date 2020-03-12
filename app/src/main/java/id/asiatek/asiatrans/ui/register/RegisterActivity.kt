@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import es.dmoral.toasty.Toasty
 import id.asiatek.asiatrans.BR
 import id.asiatek.asiatrans.R
 import id.asiatek.asiatrans.databinding.ActivityRegisterBinding
@@ -21,6 +22,7 @@ import id.asiatek.asiatrans.ui.base.BaseActivity
 import id.asiatek.asiatrans.ui.login.LoginActivity
 import id.asiatek.asiatrans.viewmodel.RegisterViewModel
 import kotlinx.android.synthetic.main.activity_register.*
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>(), LoginNavigator, View.OnFocusChangeListener {
@@ -41,31 +43,28 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
         binding = viewDataBinding
         viewModel.navigator = this
 
-        regist()
+        tv_login.setOnClickListener {
+            startActivity<LoginActivity>()
+        }
+
+        btnDaftar.setOnClickListener {
+            funcRegister()
+        }
     }
 
-//    override fun onRegist() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-
-    private fun regist(){
-        var sdk = android.os.Build.VERSION.SDK_INT;
-        var txtDomicile = 70
-//            if(txtPassword.text.toString() == txtConfirmPassword.text.toString()){
-//                viewModel.registerData(RegisterRequest(txtEmail.text.toString(), txtOwner.text.toString(), txtPhone.text.toString(), txtDomicile  ,txtPassword.text.toString()))
-//            }else{
-//                YoYo.with(Techniques.Tada)
-//                    .duration(300)
-//                    .repeat(1)
-//                    .playOn(findViewById(R.id.txtConfirmPassword))
-//                if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-//                    txtConfirmPassword.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error) );
-//                } else {
-//                    txtConfirmPassword.setBackground(ContextCompat.getDrawable(this, R.drawable.rectangle_input_error));
-//                }
-//
-//                Toast.makeText(this,"Your Confirm Password is Not Match", Toast.LENGTH_SHORT ).show()
-//            }
+    private fun funcRegister() {
+        if(txtNomor.text != null || txtPasswordBaru.text != null){
+            if(txtConfPassword.text != txtPasswordBaru){
+                Toasty.error(baseContext, "Konfirmasi Password Tidak Sesuai", Toast.LENGTH_SHORT, true).show()
+            }else{
+                var request = RegisterRequest()
+                request.hp1 = txtNomor.text.trim().toString()
+                request.password = txtPasswordBaru.text.trim().toString()
+                viewModel.registerData(request)
+            }
+        }else{
+            Toasty.error(baseContext, "Data yang anda masukan belum lengkap", Toast.LENGTH_SHORT, true).show()
+        }
     }
 
     override fun onFocusChange(p0: View?, p1: Boolean) {
@@ -78,8 +77,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
     override fun onSuccessRegister(msg: MsgRegister) {
         if(msg.status == true){
-            Toast.makeText(this,"Your Registration is Success", Toast.LENGTH_SHORT ).show()
-            startActivity(Intent(this, LoginActivity::class.java))
+            Toast.makeText(this,"Registrasi Berhasil", Toast.LENGTH_SHORT ).show()
+            startActivity<LoginActivity>()
         }else{
             Toast.makeText(this,"Your Registration is Failded", Toast.LENGTH_SHORT ).show()
         }

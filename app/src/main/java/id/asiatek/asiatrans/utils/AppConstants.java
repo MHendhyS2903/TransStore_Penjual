@@ -30,9 +30,9 @@ public final class AppConstants {
     public static final String UploadURL = BASE_URL + "/public/uploads/";
 
     /*--API--*/
-    public static final String PostLoginHP= BASE_URL + "/User/Login";
+    public static final String PostLoginHP= BASE_URL + "/Store/Login";
     public static final String PostLoginGmail = BASE_URL + "/User/Registration";
-    public static final String PostRegister = BASE_URL + "/User/Registration";
+    public static final String PostRegister = BASE_URL + "/Store/Registration";
     public static final String getItems = BASE_URL + "/Item/GetByParamns";
     public static final String getAccount = BASE_URL + "/User/GetByParams";
     public static final String updateQty = BASE_URL + "/Cart/Update";
