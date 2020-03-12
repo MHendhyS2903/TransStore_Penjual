@@ -8,26 +8,26 @@ import android.view.View
 import android.view.ViewGroup
 
 import id.asiatek.asiatrans.R
-import id.asiatek.asiatrans.viewmodel.InboxViewModel
+import id.asiatek.asiatrans.viewmodel.InboxTabViewModel
 
-class InboxFragment : Fragment() {
+class InboxTabFragment : Fragment() {
 
     companion object {
-        fun newInstance() = InboxFragment()
+        fun newInstance() = InboxTabFragment()
     }
 
-    private lateinit var viewModel: InboxViewModel
+    private lateinit var viewModel: InboxTabViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.inbox_fragment, container, false)
+        return inflater.inflate(R.layout.inbox_tab_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(InboxViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(InboxTabViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
