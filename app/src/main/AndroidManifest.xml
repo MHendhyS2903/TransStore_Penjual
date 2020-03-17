@@ -21,22 +21,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.add_item.AddItemActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".ui.tab_menu.MainTabActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".ui.splash.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name=".ui.account.AccountStoreActivity"></activity>
+        <activity android:name=".ui.account.AccountProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.add_item.AddItemActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.tab_menu.MainTabActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".ui.register.RegisterActivity"
@@ -46,7 +49,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <meta-data
             android:name="preloaded_fonts"

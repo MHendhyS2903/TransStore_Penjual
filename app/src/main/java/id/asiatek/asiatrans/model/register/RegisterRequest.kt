@@ -11,19 +11,16 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class RegisterRequest(
 
-        @field:JsonProperty("email")
-        var email: String = "",
-
-        @field:JsonProperty("owner")
-        var owner: String = "",
-
         @field:JsonProperty("hp1")
         var hp1: String = "",
 
-        @field:JsonProperty("domicilecity")
-        var domicilecity: Int = 70,
-
         @field:JsonProperty("password")
-        var password: String = ""
+        var password: String = "",
+
+        @field:JsonProperty("email")
+        var email: String = "",
+
+        @field:JsonProperty("storename")
+        var storename: String = ""
 
 ) : Parcelable

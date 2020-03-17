@@ -53,18 +53,13 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
     }
 
     private fun funcRegister() {
-        if(txtNomor.text != null || txtPasswordBaru.text != null){
-            if(txtConfPassword.text != txtPasswordBaru){
-                Toasty.error(baseContext, "Konfirmasi Password Tidak Sesuai", Toast.LENGTH_SHORT, true).show()
-            }else{
-                var request = RegisterRequest()
-                request.hp1 = txtNomor.text.trim().toString()
-                request.password = txtPasswordBaru.text.trim().toString()
-                viewModel.registerData(request)
-            }
-        }else{
-            Toasty.error(baseContext, "Data yang anda masukan belum lengkap", Toast.LENGTH_SHORT, true).show()
-        }
+        var request = RegisterRequest()
+        request.hp1 = txtNomor.text.trim().toString()
+        request.password = txtPasswordBaru.text.trim().toString()
+        request.email = txtEmail.text.trim().toString()
+        request.storename = txtStore.text.toString()
+
+        viewModel.registerData(request)
     }
 
     override fun onFocusChange(p0: View?, p1: Boolean) {
@@ -77,10 +72,10 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
     override fun onSuccessRegister(msg: MsgRegister) {
         if(msg.status == true){
-            Toast.makeText(this,"Registrasi Berhasil", Toast.LENGTH_SHORT ).show()
+            Toasty.success(baseContext, "Registrasi Berhasil", Toast.LENGTH_SHORT, true).show()
             startActivity<LoginActivity>()
         }else{
-            Toast.makeText(this,"Your Registration is Failded", Toast.LENGTH_SHORT ).show()
+            Toasty.error(baseContext, "Registrasi Gagal", Toast.LENGTH_SHORT, true).show()
         }
     }
 

@@ -2,10 +2,11 @@ package id.asiatek.asiatrans.navigator
 
 import id.asiatek.asiatrans.model.gmail.MsgGmail
 
-interface HomeNavigator {
+interface AccountProfileNavigator {
+
+    fun onSuccessProfile(msg: MsgGmail)
     fun showLoading()
     fun hideLoading()
-    fun onSuccess()
     fun onError()
     fun showMsg(msg:String)
 }

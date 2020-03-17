@@ -152,7 +152,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
-    override fun getBindingVariable() = BR.vmlogin
+    override fun getBindingVariable() = BR.vmLogin
     override fun getLayoutId() = R.layout.activity_login
     override fun getViewModel() = viewModel
 }

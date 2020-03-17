@@ -43,7 +43,7 @@ public final class AppConstants {
     public static final String UpdateOutlet = BASE_URL + "/restaurantoutlet/update";
     public static final String DeleteOutlet = BASE_URL + "/restaurantoutlet/delete";
     public static final String UpdateProfile = BASE_URL + "/restaurant/updateprofile";
-    public static final String GetProfile = BASE_URL + "/restaurant/getbytoken";
+    public static final String GetProfile = BASE_URL + "/Store/getbytoken";
     public static final String GetOrders = BASE_URL + "/restaurant/getorders";
     public static final String AcceptOrder = BASE_URL + "/restaurant/setactive";
     public static final String FinishOrder = BASE_URL + "/restaurant/setfinish";

@@ -22,7 +22,7 @@ class HomeTabFragment : BaseFragment<HomeTabFragmentBinding, HomeTabViewModel>()
     @Inject
     internal lateinit var viewModel: HomeTabViewModel
 
-    val accountDao = AccountDao()
+
     var refreshOutletList : Boolean = false
     /*SHOWCASE*/
     private var mGuideView: GuideView? = null
@@ -32,6 +32,7 @@ class HomeTabFragment : BaseFragment<HomeTabFragmentBinding, HomeTabViewModel>()
     private lateinit var mRunnable: Runnable
 
     companion object {
+        fun newInstance() = HomeTabFragment()
         val TAG = HomeTabFragment::class.java.simpleName
     }
 
@@ -44,22 +45,6 @@ class HomeTabFragment : BaseFragment<HomeTabFragmentBinding, HomeTabViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = viewDataBinding
-        viewModel.getProfile()
-    }
-
-    override fun onSuccessProfile(msg: MsgGmail) {
-        accountDao.deleteLogin()
-        msg.Value?.let { accountDao.addLogin(it) }
-        var name = accountDao.getLogin()!!.owner!!.split(' ').joinToString(" ") { it.capitalize() }
-//        tv_doku_balance.text = accountDao.getLogin()?.balance?.toInt().toString()
-//        tv_name.text = name
-//        if(accountDao.getLogin()!!.dokuid.isNullOrEmpty()){
-//            doku_nonactive.visibility = View.VISIBLE
-//            doku_active.visibility = View.GONE
-//        }else{
-//            doku_nonactive.visibility = View.GONE
-//            doku_active.visibility = View.VISIBLE
-//        }
     }
 
     override fun onSuccess() {

@@ -21,37 +21,37 @@ import io.reactivex.schedulers.Schedulers
 
 class HomeTabViewModel : BaseObservableViewModel<HomeNavigator>(){
 
-    fun getProfile() {
-        Rx2AndroidNetworking.get(GetProfile)
-            .addQueryParameter("token", SharedPref.getToken())
-            .build()
-            .setAnalyticsListener { timeTakenInMillis, bytesSent, bytesReceived, isFromCache ->
-                Log.d(HomeTabFragment.TAG, " timeTakenInMillis : $timeTakenInMillis")
-                Log.d(HomeTabFragment.TAG, " bytesSent : $bytesSent")
-                Log.d(HomeTabFragment.TAG, " bytesReceived : $bytesReceived")
-                Log.d(HomeTabFragment.TAG, " isFromCache : $isFromCache")
-            }
-            .stringSingle
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : SingleObserver<String> {
-                override fun onSuccess(response: String) {
-                    Log.d(HomeTabFragment.TAG, "onResponse isMainThread : ${Looper.myLooper() == Looper.getMainLooper()}")
-                    Log.d(HomeTabFragment.TAG, "RESPONSE : $response")
-                    var msg = ObjectMapper().readValue(response, MsgGmail::class.java)
-                    if(msg.Status == true) {
-                        navigator.onSuccessProfile(msg)
-                    }
-                }
-                override fun onSubscribe(d: Disposable) {
-
-                }
-
-                override fun onError(e: Throwable) {
-                    navigator.onError()
-                    CommonUtils.getErrorBody(e)?.let { navigator.showMsg(it) }
-                    CommonUtils.logError(HomeTabFragment.TAG, e)
-                }
-            })
-    }
+//    fun getProfile() {
+//        Rx2AndroidNetworking.get(GetProfile)
+//            .addQueryParameter("token", SharedPref.getToken())
+//            .build()
+//            .setAnalyticsListener { timeTakenInMillis, bytesSent, bytesReceived, isFromCache ->
+//                Log.d(HomeTabFragment.TAG, " timeTakenInMillis : $timeTakenInMillis")
+//                Log.d(HomeTabFragment.TAG, " bytesSent : $bytesSent")
+//                Log.d(HomeTabFragment.TAG, " bytesReceived : $bytesReceived")
+//                Log.d(HomeTabFragment.TAG, " isFromCache : $isFromCache")
+//            }
+//            .stringSingle
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe(object : SingleObserver<String> {
+//                override fun onSuccess(response: String) {
+//                    Log.d(HomeTabFragment.TAG, "onResponse isMainThread : ${Looper.myLooper() == Looper.getMainLooper()}")
+//                    Log.d(HomeTabFragment.TAG, "RESPONSE : $response")
+//                    var msg = ObjectMapper().readValue(response, MsgGmail::class.java)
+//                    if(msg.Status == true) {
+//                        navigator.onSuccessProfile(msg)
+//                    }
+//                }
+//                override fun onSubscribe(d: Disposable) {
+//
+//                }
+//
+//                override fun onError(e: Throwable) {
+//                    navigator.onError()
+//                    CommonUtils.getErrorBody(e)?.let { navigator.showMsg(it) }
+//                    CommonUtils.logError(HomeTabFragment.TAG, e)
+//                }
+//            })
+//    }
 }
