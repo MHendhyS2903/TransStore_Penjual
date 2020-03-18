@@ -21,6 +21,10 @@ import io.reactivex.schedulers.Schedulers
 
 class HomeTabViewModel : BaseObservableViewModel<HomeNavigator>(){
 
+    fun onClickLogOut() {
+        navigator.toLogOut()
+    }
+
 //    fun getProfile() {
 //        Rx2AndroidNetworking.get(GetProfile)
 //            .addQueryParameter("token", SharedPref.getToken())

@@ -1,12 +1,12 @@
 package id.asiatek.asiatrans.navigator
 
-import id.asiatek.asiatrans.model.account_profile.MsgAccountProfile
+import id.asiatek.asiatrans.model.account_store.MsgAccountStore
 import id.asiatek.asiatrans.model.gmail.MsgGmail
 
-interface AccountProfileNavigator {
+interface AccountStoreNavigator {
 
     fun onSuccessProfile(msg: MsgGmail)
-    fun onSuccessUpdate(msg: MsgAccountProfile)
+    fun onSuccessUpdate(msg: MsgAccountStore)
     fun showLoading()
     fun hideLoading()
     fun onError()

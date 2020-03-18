@@ -31,7 +31,7 @@ public final class AppConstants {
 
     /*--API--*/
     public static final String PostLoginHP= BASE_URL + "/Store/Login";
-    public static final String PostLoginGmail = BASE_URL + "/User/Registration";
+    public static final String PostUpdateAccount = BASE_URL + "/Store/Update";
     public static final String PostRegister = BASE_URL + "/Store/Registration";
     public static final String getItems = BASE_URL + "/Item/GetByParamns";
     public static final String getAccount = BASE_URL + "/User/GetByParams";

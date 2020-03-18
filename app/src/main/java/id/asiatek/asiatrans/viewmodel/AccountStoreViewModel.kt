@@ -6,11 +6,10 @@ import androidx.viewpager.widget.ViewPager
 import com.fasterxml.jackson.databind.ObjectMapper
 import id.asiatek.asiatrans.conn.rx2androidnetworking.Rx2AndroidNetworking
 import id.asiatek.asiatrans.data.prefs.SharedPref
-import id.asiatek.asiatrans.model.account_profile.MsgAccountProfile
-import id.asiatek.asiatrans.model.account_profile.UpdateRequest
+import id.asiatek.asiatrans.model.account_store.MsgAccountStore
+import id.asiatek.asiatrans.model.account_store.UpdateRequest
 import id.asiatek.asiatrans.model.gmail.MsgGmail
-import id.asiatek.asiatrans.navigator.AccountProfileNavigator
-import id.asiatek.asiatrans.navigator.MainNavigator
+import id.asiatek.asiatrans.navigator.AccountStoreNavigator
 import id.asiatek.asiatrans.ui.base.BaseObservableViewModel
 import id.asiatek.asiatrans.ui.login.LoginActivity
 import id.asiatek.asiatrans.ui.tab_menu.tab_home.HomeTabFragment
@@ -21,9 +20,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class AccountProfileViewModel : BaseObservableViewModel<AccountProfileNavigator>() {
+class AccountStoreViewModel : BaseObservableViewModel<AccountStoreNavigator>() {
 
-    fun getAccount() {
+    fun getAccountStore() {
         Rx2AndroidNetworking.get(AppConstants.GetProfile)
             .addQueryParameter("token", SharedPref.getToken())
             .build()
@@ -80,7 +79,7 @@ class AccountProfileViewModel : BaseObservableViewModel<AccountProfileNavigator>
                     navigator.hideLoading()
                     Log.d(LoginActivity.TAG, "onResponse isMainThread : ${Looper.myLooper() == Looper.getMainLooper()}")
                     Log.d(LoginActivity.TAG, "RESPONSE : $response")
-                    var msg = CommonUtils.mto(response, MsgAccountProfile::class.java)
+                    var msg = CommonUtils.mto(response, MsgAccountStore::class.java)
                     navigator.onSuccessUpdate(msg)
                 }
 

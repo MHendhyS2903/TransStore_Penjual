@@ -8,4 +8,5 @@ interface HomeNavigator {
     fun onSuccess()
     fun onError()
     fun showMsg(msg:String)
+    fun toLogOut()
 }
