@@ -12,24 +12,29 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <Button
-                android:id="@+id/btnTambahBarang"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/button_green_trans_login"
-                android:text="Tambah Barang"
-                android:textColor="@color/white"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"></Button>
+                app:layout_constraintStart_toStartOf="parent">
+                <Button
+                    android:id="@+id/btnTambahBarang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_green_trans_login"
+                    android:text="Tambah Barang"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"></Button>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/btnTambahBarang"
                 app:layout_constraintVertical_bias="0.02">
                 <ScrollView
                     android:layout_width="match_parent"

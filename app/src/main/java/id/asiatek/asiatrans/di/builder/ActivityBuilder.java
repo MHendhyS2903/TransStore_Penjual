@@ -4,14 +4,17 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import id.asiatek.asiatrans.module.AccountProfileActivityModule;
 import id.asiatek.asiatrans.module.AccountStoreActivityModule;
+import id.asiatek.asiatrans.module.EtalaseActivityModule;
 import id.asiatek.asiatrans.module.LoginActivityModule;
 import id.asiatek.asiatrans.module.MainTabActivityModule;
 import id.asiatek.asiatrans.module.RegisterActivityModule;
+import id.asiatek.asiatrans.provider.EtalaseTabFragmentProvider;
 import id.asiatek.asiatrans.provider.HomeTabFragmentProvider;
 import id.asiatek.asiatrans.provider.InboxTabFragmentProvider;
 import id.asiatek.asiatrans.provider.ItemTabFragmentProvider;
 import id.asiatek.asiatrans.ui.account.AccountProfileActivity;
 import id.asiatek.asiatrans.ui.account.AccountStoreActivity;
+import id.asiatek.asiatrans.ui.etalase.EtalaseActivity;
 import id.asiatek.asiatrans.ui.login.LoginActivity;
 import id.asiatek.asiatrans.ui.register.RegisterActivity;
 import id.asiatek.asiatrans.ui.tab_menu.MainTabActivity;
@@ -32,6 +35,9 @@ public abstract class ActivityBuilder {
     public abstract AccountStoreActivity bindAccountStoreActivity();
 
     @ContributesAndroidInjector(modules = {MainTabActivityModule.class, HomeTabFragmentProvider.class, ItemTabFragmentProvider.class,
-            InboxTabFragmentProvider.class })
+            InboxTabFragmentProvider.class, EtalaseTabFragmentProvider.class})
     public abstract MainTabActivity bindMainTabActivity();
+
+    @ContributesAndroidInjector(modules = {EtalaseActivityModule.class})
+    public abstract EtalaseActivity bindEtalaseActivity();
 }

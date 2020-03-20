@@ -8,7 +8,7 @@ import id.asiatek.asiatrans.viewmodel.InboxTabViewModel
 @Module
 class InboxTabFragmentModule {
     @Provides
-    fun provideHomeViewModel(): InboxTabViewModel {
+    fun provideInboxViewModel(): InboxTabViewModel {
         return InboxTabViewModel()
     }
 }

@@ -8,7 +8,7 @@ import id.asiatek.asiatrans.viewmodel.ItemTabViewModel
 @Module
 class ItemTabFragmentModule {
     @Provides
-    fun provideHomeViewModel(): ItemTabViewModel {
+    fun provideItemViewModel(): ItemTabViewModel {
         return ItemTabViewModel()
     }
 }
