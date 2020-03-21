@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.account.AccountProfileActivity">
+    tools:context=".ui.account.AccountStoreActivity">
     <data>
         <variable
             name="vmAccountStore"

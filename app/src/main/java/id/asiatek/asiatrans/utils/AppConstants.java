@@ -33,7 +33,7 @@ public final class AppConstants {
     public static final String PostLoginHP= BASE_URL + "/Store/Login";
     public static final String PostUpdateAccount = BASE_URL + "/Store/Update";
     public static final String PostRegister = BASE_URL + "/Store/Registration";
-    public static final String getItems = BASE_URL + "/Item/GetByParamns";
+    public static final String AddEtalase = BASE_URL + "/Etalase/Add";
     public static final String getAccount = BASE_URL + "/User/GetByParams";
     public static final String updateQty = BASE_URL + "/Cart/Update";
     public static final String getWishlist = BASE_URL + "/wishlist/GetByToken";

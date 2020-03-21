@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bpdsulteng.jbk.realm.dao.AccountDao
@@ -176,6 +177,12 @@ class EtalaseTabFragment : BaseFragment<EtalaseTabFragmentBinding, EtalaseTabVie
         refreshOutletList = true
         var request = obj!!
 //        startActivity<EtalaseActivity>(KEY_REQUEST to request)
+        activity?.let{
+            val intent = Intent (it, EtalaseActivity::class.java).apply {
+                putExtra(KEY_REQUEST, request)
+            }
+            it.startActivity(intent)
+        }
     }
 
     override fun showMsg(msg: String) {

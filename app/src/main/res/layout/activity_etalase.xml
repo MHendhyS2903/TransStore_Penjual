@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.account.AccountProfileActivity">
+    tools:context=".ui.etalase.EtalaseActivity">
     <data>
         <variable
             name="vmEtalase"
@@ -75,7 +75,7 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <Button
-                            android:id="@+id/btnUpdateAccountProfile"
+                            android:id="@+id/btnAddEtalase"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
