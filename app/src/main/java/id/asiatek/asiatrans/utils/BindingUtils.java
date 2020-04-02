@@ -13,7 +13,9 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import id.asiatek.asiatrans.model.etalase.DataItemEtalase;
+import id.asiatek.asiatrans.model.item.DataItem;
 import id.asiatek.asiatrans.ui.tab_menu.tab_etalase.EtalaseAdapter;
+import id.asiatek.asiatrans.ui.tab_menu.tab_item.ItemAdapter;
 
 public final class BindingUtils {
 
@@ -42,6 +44,15 @@ public final class BindingUtils {
     @BindingAdapter({"adapter"})
     public static void addItemsEtalase(RecyclerView recyclerView, List<DataItemEtalase> strings) {
         EtalaseAdapter adapter = (EtalaseAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(strings);
+        }
+    }
+
+    @BindingAdapter({"adapter"})
+    public static void addItems(RecyclerView recyclerView, List<DataItem> strings) {
+        ItemAdapter adapter = (ItemAdapter) recyclerView.getAdapter();
         if (adapter != null) {
             adapter.clearItems();
             adapter.addItems(strings);

@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tanggal Dibuat"></TextView>
+                android:text="@{vmItemEtalase.create}"></TextView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

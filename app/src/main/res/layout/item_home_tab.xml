@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <data>-->
+    <data>
 
-<!--        <variable-->
-<!--            name="vmItemHome"-->
-<!--            type="id.asiatek.asiatrans.viewmodel.FavoriteItemViewModel" />-->
+    <variable
+        name="vmItemHome"
+        type="id.asiatek.asiatrans.viewmodel.ItemViewModel" />
 
-<!--    </data>-->
+</data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
