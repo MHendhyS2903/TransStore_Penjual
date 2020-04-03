@@ -8,13 +8,16 @@ import androidx.lifecycle.ViewModel
 import com.fasterxml.jackson.databind.ObjectMapper
 import id.asiatek.asiatrans.conn.rx2androidnetworking.Rx2AndroidNetworking
 import id.asiatek.asiatrans.data.prefs.SharedPref
+import id.asiatek.asiatrans.model.etalase.DataItemEtalase
+import id.asiatek.asiatrans.model.etalase.MsgEtalaseList
 import id.asiatek.asiatrans.model.gmail.MsgGmail
 import id.asiatek.asiatrans.model.item.DataItem
 import id.asiatek.asiatrans.model.item.MsgItemList
 import id.asiatek.asiatrans.navigator.ItemNavigator
 import id.asiatek.asiatrans.ui.base.BaseObservableViewModel
+import id.asiatek.asiatrans.ui.tab_menu.tab_etalase.EtalaseTabFragment
 import id.asiatek.asiatrans.ui.tab_menu.tab_item.ItemTabFragment
-import id.asiatek.asiatrans.utils.AppConstants.GetProfile
+import id.asiatek.asiatrans.utils.AppConstants.*
 import id.asiatek.asiatrans.utils.CommonUtils
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -59,10 +62,10 @@ class ItemTabViewModel : BaseObservableViewModel<ItemNavigator>(){
             })
     }
 
-    fun getOutletList() {
+    fun getProductList() {
         navigator.showLoading()
-        Rx2AndroidNetworking.get(GetProfile)
-            .addQueryParameter("token",SharedPref.getToken())
+        Rx2AndroidNetworking.get(getProduct)
+            .addQueryParameter("storeid", "5dcbbd3bca8611348cf39300")
             .build()
             .setAnalyticsListener { timeTakenInMillis, bytesSent, bytesReceived, isFromCache ->
                 Log.d(ItemTabFragment.TAG, " timeTakenInMillis : $timeTakenInMillis")
@@ -80,7 +83,7 @@ class ItemTabViewModel : BaseObservableViewModel<ItemNavigator>(){
                     Log.d(ItemTabFragment.TAG, "RESPONSE : $response")
                     var msg = ObjectMapper().readValue(response, MsgItemList::class.java)
                     if(msg.status == true) {
-                        setItemsOutlet(msg.value as MutableList<DataItem>)
+                        setItemsProduct(msg.value as MutableList<DataItem>)
                         navigator.onSuccess()
                     }
                 }
@@ -92,12 +95,12 @@ class ItemTabViewModel : BaseObservableViewModel<ItemNavigator>(){
                     navigator.hideLoading()
                     navigator.onError()
                     CommonUtils.getErrorBody(e)?.let { navigator.showMsg(it) }
-                    CommonUtils.logError(ItemTabFragment.TAG, e)
+                    CommonUtils.logError(EtalaseTabFragment.TAG, e)
                 }
             })
     }
 
-    fun setItemsOutlet(items: MutableList<DataItem>) {
+    fun setItemsProduct(items: MutableList<DataItem>) {
         itemsHome.clear()
         itemsHome.addAll(items)
     }

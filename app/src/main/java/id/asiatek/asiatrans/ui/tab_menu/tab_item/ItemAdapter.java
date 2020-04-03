@@ -13,16 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.asiatek.asiatrans.R;
+import id.asiatek.asiatrans.databinding.ItemEtalaseTabBinding;
 import id.asiatek.asiatrans.databinding.ItemHomeTabBinding;
 import id.asiatek.asiatrans.databinding.ProgressRvBinding;
+import id.asiatek.asiatrans.model.etalase.DataItemEtalase;
 import id.asiatek.asiatrans.model.item.DataItem;
+import id.asiatek.asiatrans.viewmodel.EtalaseItemViewModel;
 import id.asiatek.asiatrans.viewmodel.ItemViewModel;
 
 public class ItemAdapter extends RecyclerView.Adapter {
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
     private List<DataItem> item = new ArrayList<>();
-    private OnItemClickListener onItemClickListener;
+    private ItemAdapter.OnItemClickListener onItemClickListener;
     private Context context;
 
     public ItemAdapter(Context context) {
@@ -46,12 +49,12 @@ public class ItemAdapter extends RecyclerView.Adapter {
         return item.size();
     }
 
-    void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    void setOnItemClickListener(ItemAdapter.OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
     interface OnItemClickListener {
-        void onItemClickOutlet(View view, DataItem obj);
+        void onItemClickEtalase(View view, DataItem obj);
     }
 
     @Override
@@ -76,15 +79,15 @@ public class ItemAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof ItemViewHolder) {
-            ((ItemViewHolder) holder).bind(getItemAtPosition(position));
-            ((ItemViewHolder) holder).itemView.setOnClickListener(view -> {
+        if (holder instanceof ItemAdapter.ItemViewHolder) {
+            ((ItemAdapter.ItemViewHolder) holder).bind(getItemAtPosition(position));
+            ((ItemAdapter.ItemViewHolder) holder).itemView.setOnClickListener(view -> {
                 if (onItemClickListener != null) {
-                    onItemClickListener.onItemClickOutlet(view, getItemAtPosition(position));
+                    onItemClickListener.onItemClickEtalase(view, getItemAtPosition(position));
                 }
             });
-        } else if (holder instanceof ProgressViewHolder) {
-            ((ProgressViewHolder) holder).bind();
+        } else if (holder instanceof ItemAdapter.ProgressViewHolder) {
+            ((ItemAdapter.ProgressViewHolder) holder).bind();
         }
     }
 

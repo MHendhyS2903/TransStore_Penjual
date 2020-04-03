@@ -9,17 +9,23 @@ import javax.annotation.Generated
 @Parcelize
 data class DataItem(
 
+	@field:JsonProperty("id")
+	val id: String? = null,
+
 	@field:JsonProperty("idstore")
 	val idstore: String? = null,
 
 	@field:JsonProperty("idcategory")
-	var idcategory: String? = null,
+	val idcategory: String? = null,
 
 	@field:JsonProperty("title")
 	val title: String? = null,
 
 	@field:JsonProperty("description")
 	val description: String? = null,
+
+	@field:JsonProperty("photo")
+	val photo: String? = null,
 
 	@field:JsonProperty("price")
 	val price: Double? = null,
