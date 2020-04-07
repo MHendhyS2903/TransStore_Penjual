@@ -36,9 +36,9 @@ public final class AppConstants {
     public static final String AddEtalase = BASE_URL + "/Etalase/Add";
     public static final String getUnpaidTrans = BASE_URL + "/Order/GetByUnpaidTransaction";
     public static final String getProduct = BASE_URL + "/Item/GetByStore";
-    public static final String getWishlist = BASE_URL + "/wishlist/GetByToken";
-    public static final String getCartList = BASE_URL + "/cart/GetByToken";
-    public static final String DeleteFood = BASE_URL + "/restaurantfood/delete";
+    public static final String AddProduct = BASE_URL + "/Item/Add";
+    public static final String getCartList = BASE_URL + "/Item/Update";
+    public static final String UpdateProduct = BASE_URL + "/Item/Update";
     public static final String AddOutlet= BASE_URL + "/restaurantoutlet/add";
     public static final String UpdateOutlet = BASE_URL + "/restaurantoutlet/update";
     public static final String DeleteOutlet = BASE_URL + "/restaurantoutlet/delete";

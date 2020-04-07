@@ -12,8 +12,8 @@ data class DataItem(
 	@field:JsonProperty("id")
 	val id: String? = null,
 
-	@field:JsonProperty("idstore")
-	val idstore: String? = null,
+	@field:JsonProperty("store_token")
+	val store_token: String? = null,
 
 	@field:JsonProperty("idcategory")
 	val idcategory: String? = null,

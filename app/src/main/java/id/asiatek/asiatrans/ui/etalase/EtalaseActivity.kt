@@ -56,7 +56,6 @@ class EtalaseActivity : BaseActivity<ActivityEtalaseBinding, EtalaseViewModel>()
         viewModel.navigator = this
 //
         btnAddEtalase.setOnClickListener {
-            AddEtalase()
             if(btnAddEtalase.text=="Tambah Data")
             {
                 AddEtalase()
@@ -119,6 +118,10 @@ class EtalaseActivity : BaseActivity<ActivityEtalaseBinding, EtalaseViewModel>()
         }else{
             Toasty.error(baseContext, "Gagal Merubah Etalase", Toast.LENGTH_SHORT, true).show()
         }
+    }
+
+    override fun onSuccess() {
+        Toasty.success(baseContext, "Berhasil Merubah Etalase", Toast.LENGTH_SHORT, true).show()
     }
 
     override fun onSuccessDelete() {

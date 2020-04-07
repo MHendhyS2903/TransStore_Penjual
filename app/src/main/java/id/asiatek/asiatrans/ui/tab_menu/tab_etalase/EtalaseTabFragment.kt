@@ -19,7 +19,6 @@ import id.asiatek.asiatrans.model.gmail.MsgGmail
 import id.asiatek.asiatrans.navigator.EtalaseNavigator
 import id.asiatek.asiatrans.ui.base.BaseFragment
 import id.asiatek.asiatrans.ui.etalase.EtalaseActivity
-import id.asiatek.asiatrans.ui.tab_menu.tab_home.HomeTabFragment
 import id.asiatek.asiatrans.utils.AppConstants.KEY_REQUEST
 import id.asiatek.asiatrans.viewmodel.EtalaseTabViewModel
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -136,9 +135,9 @@ class EtalaseTabFragment : BaseFragment<EtalaseTabFragmentBinding, EtalaseTabVie
 //        if(nsv_outlet != null){
 //            nsv_outlet.smoothScrollTo(0,0)
             if(viewModel.getItemsEtalase().isEmpty()){
-                lv_loading.visibility = View.GONE
+//                lv_loading.visibility = View.GONE
                 rv_etalase_list.visibility = View.GONE
-                ll_no_internet.visibility = View.GONE
+//                ll_no_internet.visibility = View.GONE
             }
 //        }
     }

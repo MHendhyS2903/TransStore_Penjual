@@ -65,7 +65,7 @@ class ItemTabViewModel : BaseObservableViewModel<ItemNavigator>(){
     fun getProductList() {
         navigator.showLoading()
         Rx2AndroidNetworking.get(getProduct)
-            .addQueryParameter("storeid", "5dcbbd3bca8611348cf39300")
+            .addQueryParameter("store_token", SharedPref.getToken())
             .build()
             .setAnalyticsListener { timeTakenInMillis, bytesSent, bytesReceived, isFromCache ->
                 Log.d(ItemTabFragment.TAG, " timeTakenInMillis : $timeTakenInMillis")

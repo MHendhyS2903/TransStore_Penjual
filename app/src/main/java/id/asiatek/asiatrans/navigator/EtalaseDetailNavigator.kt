@@ -11,6 +11,7 @@ interface EtalaseDetailNavigator {
     fun onSuccessAdd(msg: MsgEtalase)
     fun onSuccessUpdate(msg: MsgEtalase)
     fun onSuccessDelete()
+    fun onSuccess()
     fun showLoading()
     fun hideLoading()
     fun onError()

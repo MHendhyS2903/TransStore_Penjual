@@ -85,7 +85,7 @@ class MainTabActivity : BaseActivity<ActivityMainTabBinding , MainTabViewModel>(
 //        if(accountDao.getLogin()!!.dokuid.isNullOrEmpty()){
 //            doku_nonactive.visibility = View.VISIBLE
 //            doku_active.visibility = View.GONE
-//        }else{
+//        }else{-
 //            doku_nonactive.visibility = View.GONE
 //            doku_active.visibility = View.VISIBLE
 //        }
